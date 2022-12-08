@@ -27,6 +27,7 @@ exports.getData = async (req,res) => {
     try {
         const data = await Data.find();
         res.json(data);
+        
     } catch (error) {
         res.json({"err":error})
     }
