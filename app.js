@@ -6,6 +6,7 @@ var cors = require('cors')
 const app = express();
 const Data = require('./models/data')
 
+
 dotenv.config({path:"config.env"})
 const PORT = process.env.PORT || 8008
 app.use(cors());
