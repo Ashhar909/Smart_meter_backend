@@ -14,10 +14,9 @@ const dataSchema = new mongoose.Schema({
         required:true
     },
     time:{
-        type: Date,
-        default: Date.getTime()
+        type: String
     }
-},{timestamps:true})
+})
 
 const Data = mongoose.model('value',dataSchema);
 module.exports = Data;

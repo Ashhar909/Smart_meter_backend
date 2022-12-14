@@ -21,7 +21,11 @@ mongoose.connect(process.env.mongo)
         })
         var  SerialPort = require('serialport');
         const parsers = SerialPort.parsers;
-
+        var curTime = new Date();
+        var h = curTime.getHours();
+        var m = curTime.getMinutes();
+        var s = curTime.getSeconds();
+        var date = h+":"+m+":"+s;
         const parser = new parsers.Readline({
             delimiter: '\n'
         });
@@ -39,10 +43,11 @@ mongoose.connect(process.env.mongo)
             const entry = new Data({
                 Voltage:values[0],
                 Current:values[1],
-                Power:values[2]
+                Power:values[2],
+                time: date
             })
             entry.save()
-            .then(()=> console.log("saved"))
+            .then(()=> console.log(date))
             .catch((err)=> console.log(err.message))
             console.log(values);
         });

@@ -4,11 +4,12 @@ const Data = require('../models/data');
 const Test = require('../models/test')
 
 exports.addData = (req,res) => {
+    const curTime = new Date;
     try {
         const data = new Data({
             Current:req.body.current,
             Voltage:req.body.voltage,
-            Power:req.body.power
+            Power:req.body.power,
         })
     
         data.save()
