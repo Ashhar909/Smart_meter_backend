@@ -13,6 +13,10 @@ const dataSchema = new mongoose.Schema({
         type:Number,
         required:true
     },
+    time:{
+        type: Date,
+        default: Date.getTime()
+    }
 },{timestamps:true})
 
 const Data = mongoose.model('value',dataSchema);
